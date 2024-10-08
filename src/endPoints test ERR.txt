@@ -1,0 +1,80 @@
+
+--------------------------------------------------------------------------------
+ 
+Crear un estudiante:
+
+ POST
+EndPoint: /crear-estudiante
+http://localhost:3000/crear-estudiante
+Cuerpo:
+json
+ 
+{
+    "nombres": "Juan",
+    "apellidos": "Pérez",
+    "edad": 20,
+    "nro_identidad": 12345678
+}
+
+
+--------------------------------------------------------------------------------
+Obtener un estudiante por ID:
+  GET
+EndPoint 
+Ejemplo: /leer-estudiante/1
+http://localhost:3000/leer-estudiante/1
+------------------------------------
+Listar todos los estudiantes:
+
+Método: GET
+EndPoint: /leer-todos
+http://localhost:3000/leer-todos
+ 
+--------------------------------------------------------------------------------
+
+probar errores
+ 
+-------------------------------------
+Simulando un nombre reservado (Error : 42939)
+
+POST http://localhost:3000/crear-estudiante
+
+{
+    "nombres": "admin",
+    "apellidos": "Pérez",
+    "edad": 20,
+    "nro_identidad": 12345677
+}
+
+--------------------------------------------------------------------------------
+
+Simulando un nombre vacio (Error : 42602)
+POST http://localhost:3000/crear-estudiante
+{
+    "nombres": "",
+    "apellidos": "Pérez",
+    "edad": 20,
+    "nro_identidad": 12345678
+}
+--------------------------------------------------------------------------------
+Simulando nombre con numero
+POST http://localhost:3000/crear-estudiante
+
+{
+    "nombres": "bola8",
+    "apellidos": "Pérez",
+    "edad": 20,
+    "nro_identidad": 12345678
+}
+
+--------------------------------------------------------------------------------
+Simulando error de sintaxis (Error : 22P02)
+GET http://localhost:3000/leer-estudiante/ninguno
+ 
+
+
+--------------------------------------------------------------------------------
+ 
+ Simulando error al cambiar un password erroneo (Error : 28P01)
+
+ --------------------------------------------------------------------------------
